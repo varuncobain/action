@@ -7,9 +7,9 @@ jobs:
   steps:
   - uses: appleboy/scp-action@v0.1.4
     with:
-     host: ${{ secrets.HOST }}
-     username: ${{ secrets.USERNAME }}
+     host: ${{ secrets.VM_HOST }}
+     username: ${{ secrets.VM_USERNAME }}
      port: ${{ secrets.PORT }}
-     key: ${{ secrets.KEY }}
-     source: "tests/a.txt,tests/b.txt"
-     target: your_server_target_folder_path 
+     key: ${{ secrets.VM_PASSWORD }}
+     source: .
+     target: /home/vivek/test
