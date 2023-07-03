@@ -16,10 +16,10 @@ jobs:
       - name: Run Commands on VM
         uses: appleboy/ssh-action@master
         with:
-          host: 4.236.144.47
-          username: vivek
-          password: Password@123
-          port: 22
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USERNAME }}
+          password: ${{ secrets.VM_PASSWORD }}
+          port: ${{ secrets.PORT }}
           timeout: 1000s
           script: |
             # Run your commands on the VM
