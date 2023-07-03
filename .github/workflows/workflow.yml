@@ -25,6 +25,6 @@ jobs:
             # Run your commands on the VM
             whoami
             id
-            #git clone https://github.com/varuncobain/action.git /home/vivek/test
+            #git clone https://github.com/varuncobain/action.git /var/www/html
 
     
