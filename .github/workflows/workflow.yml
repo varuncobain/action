@@ -1,18 +1,29 @@
-name: scp files
-on: [push]
+name: Run Commands on VM
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
- build:
-  name: copy file via ssh
-  runs-on: ubuntu-latest
-  steps:
-  - uses: appleboy/scp-action@v0.1.4
-    with:
-     host: 4.236.144.47
-     username: vivek
-     password: Password@123
-     port: 22
-     timeout: 1000s
-     source: "demo.txt"
-     target: /home/vivek/test
+  run-commands:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Commands on VM
+        uses: appleboy/ssh-action@master
+        with:
+          host: 4.236.144.47
+          username: vivek
+          password: Password@123
+          port: 22
+          timeout: 1000s
+          script: |
+            # Run your commands on the VM
+            whoami
+            git clone https://github.com/varuncobain/action.git /home/vivek/test
 
     
