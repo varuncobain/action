@@ -10,7 +10,7 @@ jobs:
      host: 4.236.144.47
      username: vivek
      password: Password@123
-     local: demo.txt
+     local: action
      remote: scp/directory
 
     
