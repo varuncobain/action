@@ -1,16 +1,28 @@
-name: scp files
-on: [push]
+name: Run Commands on VM
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
- build:
-  name: copy file via ssh
-  runs-on: ubuntu-latest
-  steps:
-  - uses: appleboy/scp-action@v0.1.4
-    with:
-     host: ${{ secrets.VM_HOST }}
-     username: ${{ secrets.VM_USERNAME }}
-     password: ${{ secrets.VM_PASSWORD }}
-     port: ${{ secrets.PORT }}
-     source: .
-     target: /home/vivek/test
+  run-commands:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Commands on VM
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USERNAME }}
+          password: ${{ secrets.VM_PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            # Run your commands on the VM
+            echo "Hello, VM!"
+            ls -la /path/to/directory
+            # Additional commands...
     
