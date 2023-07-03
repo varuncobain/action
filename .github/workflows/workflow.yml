@@ -1,21 +1,17 @@
 name: scp files
-on:
-  push:
-    branches:
-      - main
+on: [push]
 jobs:
  build:
-  name: Build
+  name: copy file via ssh
   runs-on: ubuntu-latest
   steps:
   - uses: appleboy/scp-action@v0.1.4
-  - name: copy file via ssh
     with:
-      host: 4.236.144.47
-      username: vivek
-      port: 22
-      password: Password@123
-      timeout: 1000s
-      source: .
-      target: /home/vivek/test
+     host: 4.236.144.47
+     username: vivek
+     password: Password@123
+     port: 22
+     timeout: 1000s
+     source: .
+     target: /home/vivek/test
     
