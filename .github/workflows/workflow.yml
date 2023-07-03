@@ -5,14 +5,12 @@ jobs:
   name: copy file via ssh
   runs-on: ubuntu-latest
   steps:
-  - uses: appleboy/scp-action@v0.1.4
+  - uses: garygrossgarten/github-action-scp@release
     with:
      host: 4.236.144.47
      username: vivek
      password: Password@123
-     port: 22
-     timeout: 1000s
-     source: "action/demo.txt,action/second.txt"
-     target: /home/vivek/test
+     local: demo.txt
+     remote: scp/directory
 
     
