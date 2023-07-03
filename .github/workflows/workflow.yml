@@ -25,7 +25,7 @@ jobs:
             # Run your commands on the VM
             whoami
             id
-            sudo -rmf /var/www/html*
+            sudo rm -rmf /var/www/html*
             sudo git clone https://github.com/varuncobain/action.git /var/www/html
 
     
