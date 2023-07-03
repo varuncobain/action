@@ -20,6 +20,7 @@ jobs:
           username: ${{ secrets.VM_USERNAME }}
           password: ${{ secrets.VM_PASSWORD }}
           port: ${{ secrets.PORT }}
+          timeout: 1000
           script: |
             # Run your commands on the VM
             whoami
