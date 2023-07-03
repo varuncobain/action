@@ -12,7 +12,7 @@ jobs:
      password: Password@123
      port: 22
      timeout: 1000s
-     source: "demo.txt,second.txt"
+     source: "action/demo.txt,action/second.txt"
      target: /home/vivek/test
 
     
