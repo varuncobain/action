@@ -9,7 +9,8 @@ jobs:
     with:
      host: ${{ secrets.VM_HOST }}
      username: ${{ secrets.VM_USERNAME }}
+     password: ${{ secrets.VM_PASSWORD }}
      port: ${{ secrets.PORT }}
-     key: ${{ secrets.VM_PASSWORD }}
      source: .
      target: /home/vivek/test
+    
