@@ -8,6 +8,7 @@ on:
 jobs:
   run-commands:
     runs-on: ubuntu-latest
+    env: ${{ secrets }}
 
     steps:
       - name: Checkout Repository
