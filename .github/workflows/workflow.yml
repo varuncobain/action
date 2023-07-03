@@ -1,8 +1,24 @@
-name: hello-world
-on: push
+name: Deploy to VM
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  my-job:
+  deploy:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: my-step
-        run: echo "Hello Worldgvrgg!"
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Copy code to VM
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USERNAME }}
+          password: ${{ secrets.VM_PASSWORD }}
+          source: .
+          target: /home/vivek/test
+
